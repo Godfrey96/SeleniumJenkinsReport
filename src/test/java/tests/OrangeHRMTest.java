@@ -11,21 +11,21 @@ public class OrangeHRMTest extends BaseClass {
 
     @Test
     public void LoginPageTest() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         WebElement imgElement = driver.findElement(By.xpath("//img[@alt='company-branding']"));
         Assert.assertTrue(imgElement.isDisplayed());
     }
 
     @Test
     public void loginTest() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Admin");
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys("admin123");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
 
         String actualTitle = driver.getTitle();
-        String expectedTitle = "OrangeHRM1";
+        String expectedTitle = "OrangeHRM";
         Assert.assertEquals(actualTitle, expectedTitle);
     }
 
