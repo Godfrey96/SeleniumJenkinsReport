@@ -54,7 +54,12 @@ public class BaseClass {
         } catch (Exception e) {
             e.getMessage();
         }
-        return destination;
+
+        // new path for jenkins
+        String newImageString = "http://localhost:8085/job/Demo3/ws/ScreenShot/" +
+                fileName + "_" + dateName + ".png";
+
+        return newImageString;
     }
 
     public static String getCurrentTime() {
