@@ -12,7 +12,7 @@ public class OrangeHRMTest extends BaseClass {
     @Test
     public void LoginPageTest() throws InterruptedException {
         Thread.sleep(4000);
-        WebElement imgElement = driver.findElement(By.xpath("//img[@alt='company-branding']"));
+        WebElement imgElement = driver.findElement(By.cssSelector("img[alt='company-branding']"));
         Assert.assertTrue(imgElement.isDisplayed());
     }
 

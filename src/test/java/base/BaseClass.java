@@ -1,11 +1,13 @@
 package base;
 
 import extentmanager.ExtentManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -32,8 +34,12 @@ public class BaseClass {
 
     @BeforeMethod
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", sDefaultPath + "\\drivers\\chromedriver.exe");
-        driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("headless");
+        chromeOptions.addArguments("window-size=1980,1080");
+//        System.setProperty("webdriver.chrome.driver", sDefaultPath + "\\drivers\\chromedriver.exe");
+        driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         driver.get("https://opensource-demo.orangehrmlive.com/");
     }
